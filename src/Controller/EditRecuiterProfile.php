@@ -48,7 +48,7 @@ class EditRecuiterProfile extends AbstractController
      $this->addFlash('success', 'Vos données ont bien été modifiées');
    }
 
-   return $this->render('Recruiter/profile.html.twig', [
+   return $this->render('recruiter/profile.html.twig', [
      'form' => $form->createView(),
      'currentUser' => $user,
      'currentCompany' => $company,
