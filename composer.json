@@ -11,6 +11,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.12",
         "easycorp/easyadmin-bundle": "^4.3",
+        "symfony/apache-pack": "^1.0",
         "symfony/asset": "6.1.*",
         "symfony/console": "6.1.*",
         "symfony/flex": "^2",
@@ -64,6 +65,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console doctrine:migrations:migrate"
         ]
     },
     "conflict": {
