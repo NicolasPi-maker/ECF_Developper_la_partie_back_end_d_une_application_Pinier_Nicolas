@@ -1,0 +1,55 @@
+{% extends '@!EasyAdmin/layout.html.twig'%}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/candidateProfile.css') }}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+    <body class="flex-column">
+        <div class="flex-column">
+        <h2>Complétez ou Modifiez votre profil</h2>
+            <div class="form-group">
+                <div>
+                    {{ form_start(form) }}
+                    {{ form_label(form.name, null , {
+                        label: 'Nom'
+                    })}}
+                </div>
+                <div class="mb-3">
+                    {{ form_widget(form.name, {'attr': {
+                        'placeholder': currentCandidate.name,
+                        'value' : currentCandidate.name,
+                    }}) }}
+                </div>
+            <div>
+                {{ form_label(form.last_name, null , {
+                    label: 'Prénom'
+                })}}
+            </div>
+            <div class="mb-3">
+                {{ form_widget(form.last_name, {'attr': {
+                    'placeholder': currentCandidate.lastName,
+                    'value' : currentCandidate.lastName
+                }}) }}
+            </div>
+            <div>
+                {{ form_label(form.fileName, null , {
+                    label: 'Curriculum Vitae'
+                })}}
+            </div>
+            <div class="mb-3">
+                {{ form_widget(form.fileName) }}
+            </div>
+            <button type="submit" class="btn-success mb-3 mt-3 rounded-3">Valider</button>
+            {{form_end(form)}}
+            <div class="flex-column">
+                <h2 class="mb-4">Votre Profil</h2>
+                <h5 class="mb-2">{{ currentCandidate.name }} {{currentCandidate.lastName}} - ({{ currentUser.email }})</h5>
+                {% if currentCandidate.fileName %}
+                <a href="{{asset('uploads/files/'~ currentCandidate.fileName )}}">Voir votre fichier</a>
+                {% endif %}
+            </div>
+        </div>
+        </div>
+    </body>
+{% endblock %}

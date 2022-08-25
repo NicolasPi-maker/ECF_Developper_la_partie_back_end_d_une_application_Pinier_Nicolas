@@ -1,0 +1,17 @@
+{% extends 'base.html.twig'%}
+
+{% block title%}Attente de Validation{% endblock %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/waitingRoom.css') }}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block body%}
+    <main class="main-wrapper">
+        <div class="content-wrapper">
+            <h1>Votre Compte doit être validé pour vous connecter ✅</h1>
+            <p>N'hésitez pas à revenir plus tard !</p>
+            <a href="{{ path('app_login') }}" class="back-link">Retour</a>
+        </div>
+    </main>
+{% endblock%}

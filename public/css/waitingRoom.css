@@ -1,0 +1,28 @@
+.main-wrapper {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+h1 {
+    color: #70a1ff;
+}
+
+.back-link {
+    transition: linear 0.2s;
+    text-decoration: none;
+    color: #0d6efd;
+}
+
+.back-link:hover {
+    color: black;
+}

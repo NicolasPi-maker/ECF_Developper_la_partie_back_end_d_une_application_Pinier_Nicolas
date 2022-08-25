@@ -1,0 +1,24 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block content %}
+    <div class="flex-column">
+        <h1 class="mb-5">Offres d'emplois disponibles</h1>
+        {% if currentCandidate %}
+        {% for offer in offers %}
+                <div class="flex-column mb-5">
+                    <h3>{{ offer.title }}</h3>
+                    <p class="text-primary">{{ offer.location }}</p>
+                    <p>{{ offer.description|raw }}</p>
+                    <form method="post">
+                        <input type="hidden" name="jobOfferId" value={{ offer.id }}>
+                        <input type="submit" value="Postuler" name="apply-btn" class="btn-info rounded-3">
+                    </form>
+                </div>
+        {% endfor %}
+        {% else %}
+            <h1>Vous devez compléter votre profil pour postuler à des offres</h1>
+        {%endif%}
+    </div>
+{% endblock %}
+
+

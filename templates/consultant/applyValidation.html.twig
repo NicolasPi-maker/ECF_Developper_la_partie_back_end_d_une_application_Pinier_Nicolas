@@ -1,0 +1,33 @@
+{% extends '@!EasyAdmin/layout.html.twig'%}
+
+{% block page_title %}Candidatures{% endblock %}
+
+{% block content %}
+    <div class="flex-column">
+        <h1 class="mb-5">Candidature à valider</h1>
+        {% for apply in candidateJobOffers %}
+            {% if apply.isIsChecked == false %}
+            <div class="mb-5 align-items-center">
+                <div class="mb-5">
+                    <div class="d-flex">
+                        <h5>Offre :</h5>
+                        <div class="m-1 mx-3">
+                            <h6>{{ apply.getJobOffersId.getTitle }}</h6>
+                            <p>{{ apply.getJobOffersId.getLocation }}</p>
+                            <p>{{ apply.getJobOffersId.getDescription|raw }}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex">
+                        <h5>Candidat :</h5>
+                        <p class="m-1 mx-2">{{ apply.getCandidate.getName }} {{ apply.getCandidate.getLastName }}</p>
+                    </div>
+                    <form method="post" class="w-25 d-flex flex-row">
+                        <input type="hidden" name="current-apply" value="{{ apply.getId }}">
+                        <input class="btn-success rounded-3 mx-3 mt-4 py-2 px-3" value="Valider" type="submit" name="valid-apply-btn">
+                        <input class="btn-outline-danger bg-transparent rounded-3 mx-3 mt-4" value="Supprimer" type="submit" name="delete-apply-btn">
+                    </form>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

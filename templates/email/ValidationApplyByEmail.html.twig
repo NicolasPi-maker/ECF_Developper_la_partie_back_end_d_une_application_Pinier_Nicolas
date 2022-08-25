@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta title="email template">
+    </head>
+    <body>
+        <h1>Une nouvelle candidature est arrivée</h1>
+
+        <div>
+            <h5>L'offre est la suivante :</h5>
+            <p>{{ offer.title }}</p>
+            <p>{{ offer.location }}</p>
+            <p>{{ offer.description|raw }}</p>
+        </div>
+
+        <div>
+            <h5>Le candidat est :</h5>
+            <p>Nom : {{ candidate.name }}</p>
+            <p>Prénom : {{ candidate.lastName }}</p>
+            <p>Le curriculum vitae du candidat se situe en pièce jointe.</p>
+        </div>
+    </body>
+</html>
+

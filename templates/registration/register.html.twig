@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/registration.css') }}">
+{% endblock %}
+
+{% block body %}
+    <body>
+        <main class="main-wrapper">
+            <h1>Inscription</h1>
+            {{ form_start(registrationForm) }}
+            <div class="form-field">
+                <div class="field-label">
+                    {{ form_label(registrationForm.email, null, {
+                        label: 'Adresse email'
+                    }) }}
+                </div>
+                <div class="field-input">
+                    {{ form_widget(registrationForm.email) }}
+                </div>
+                {{ form_errors(registrationForm.email) }}
+            </div>
+            <div class="form-field">
+                <div class="field-label">
+                    {{ form_label(registrationForm.plainPassword, null, {
+                        label: 'Mot de passe'
+                    }) }}
+                </div>
+                <div class="field-input">
+                    {{ form_widget(registrationForm.plainPassword) }}
+                </div>
+                <div>
+                    {% if form_errors(registrationForm.plainPassword) %}
+                        {{ form_errors(registrationForm.plainPassword) }}
+                        <p>Au moins 8 caractères</p>
+                        <p>Au moins une majuscule</p>
+                        <p>Des chiffres</p>
+                        <p>Au moins un symbole spécial (?, !, @...)</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="form-field role-field-wrapper">
+                <div class="field-label">
+                    {{ form_label(registrationForm.roles, null, {
+                        label: 'Choissisez un role'
+                    }) }}
+                </div>
+                <div class="field-choices-input">
+                    {{ form_widget(registrationForm.roles) }}
+                </div>
+                {{ form_errors(registrationForm.roles) }}
+
+
+            </div>
+            <div class="form-field button-wrapper">
+                <button type="submit" class="form-button">Inscription</button>
+            </div>
+            {{ form_end(registrationForm) }}
+            <a href="{{ path('app_login')}}" class="login-link">
+                Déjà inscrit ?
+            </a>
+        </main>
+    </body>
+{% endblock %}

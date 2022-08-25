@@ -1,0 +1,55 @@
+{% extends '@!EasyAdmin/layout.html.twig'%}
+
+{% block content %}
+    <body>
+        <div class="flex-column">
+            <h2>Complétez ou Modifiez votre profil</h2>
+            {{ form_start(form) }}
+            <div class="form-group">
+                <div class="mb-1">
+                    {{ form_label(form.name, null, {
+                        label: 'Raison social'
+                    })}}
+                </div>
+                <div class="mb-3 p-0">
+                    {{ form_widget(form.name, {'attr' : {
+                        'placeholder': currentCompany.name,
+                        'value': currentCompany.name
+                    }})}}
+                </div>
+                <div class="mb-1">
+                    {{ form_label(form.address, null, {
+                        label: 'Adresse'
+                    })}}
+                </div>
+                <div class="mb-3 p-0">
+                    {{ form_widget(form.address, {'attr' : {
+                        'placeholder': currentCompany.address,
+                        'value': currentCompany.address
+                    }})}}
+                </div>
+                <div class="mb-1">
+                    {{ form_label(form.postale_code, null, {
+                        label: 'Code postal'
+                    })}}
+                </div>
+                <div class="mb-3 p-0">
+                    {{ form_widget(form.postale_code, {'attr' : {
+                        'placeholder': currentCompany.postaleCode,
+                        'value': currentCompany.postaleCode
+                    }})}}
+                </div>
+            </div>
+                <button type="submit" class="btn-success rounded-3 border-1 btn-lg text-light">Valider</button>
+                {{form_end(form)}}
+            </div>
+        </div>
+        <div class="mx-4">
+            <h2 class="mt-4 mb-4">Votre Profil</h2>
+
+            <p><i class="fa-solid fa-envelope"></i>  {{ currentUser.email }}</p>
+            <p><i class="fa-solid fa-location-dot"></i> {{ currentCompany.name }}</p>
+            <p><i class="fa-solid fa-house-user"></i> {{ currentCompany.address}} {{ currentCompany.postaleCode }}</p>
+        </div>
+    </body>
+{% endblock %}
