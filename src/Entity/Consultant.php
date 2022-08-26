@@ -24,6 +24,22 @@ class Consultant
         return $this->id;
     }
 
+  /**
+   * @return User|null
+   */
+  public function getUserIdConsultant(): ?User
+  {
+    return $this->user_id_consultant;
+  }
+
+  /**
+   * @param User|null $user_id_consultant
+   */
+  public function setUserIdConsultant(?User $user_id_consultant): void
+  {
+    $this->user_id_consultant = $user_id_consultant;
+  }
+
     public function getUsername(): ?string
     {
         return $this->username;
