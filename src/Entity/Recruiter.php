@@ -34,6 +34,22 @@ class Recruiter
       return $this->user_id_recruiter->getEmail();
     }
 
+    /**
+     * @return User|null
+     */
+    public function getUserIdRecruiter(): ?User
+    {
+      return $this->user_id_recruiter;
+    }
+
+    /**
+     * @param User|null $user_id_recruiter
+     */
+    public function setUserIdRecruiter(?User $user_id_recruiter): void
+    {
+      $this->user_id_recruiter = $user_id_recruiter;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
