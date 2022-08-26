@@ -50,12 +50,5 @@ class DashboardController extends AbstractDashboardController
           MenuItem::linkToCrud('Sociétés', 'fa-solid fa-building', Company::class),
           MenuItem::linkToCrud('Candidats', 'fa-solid fa-graduation-cap', Candidate::class),
         ]);
-
-        yield MenuItem::section('Emplois');
-        yield MenuItem::subMenu('Offres & Candidatures', 'fa-solid fa-file-pen')->setSubItems([
-          MenuItem::linkToCrud('Liste des offres', 'fa-solid fa-newspaper', JobOffer::class),
-          MenuItem::LinkToRoute('Offres avec candidats','fa-solid fa-circle-check', 'consultant_apply_validation'),
-        ]);
-
     }
 }
